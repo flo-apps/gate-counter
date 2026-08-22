@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gate Counter — scarica l'app</title>
+<meta name="description" content="Il contapersone per eventi: più varchi contano insieme, il totale è uno solo e la capienza autorizzata resta sotto controllo in tempo reale.">
+<meta name="theme-color" content="#0059FF">
+<link rel="icon" href="icona.png">
+
+<!-- Anteprima quando il link viene condiviso su WhatsApp, Telegram, social -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gate Counter">
+<meta property="og:description" content="Più varchi, un solo numero. La capienza autorizzata sotto controllo in tempo reale, a ogni ingresso.">
+<meta property="og:image" content="https://flo-apps.github.io/gate-counter/icona.png">
+<meta property="og:url" content="https://flo-apps.github.io/gate-counter/">
+<meta name="twitter:card" content="summary">
+
+<style>
+  :root{
+    --blu:#0059FF;
+    --fondo:#ffffff;
+    --superficie:#f5f5f7;
+    --testo:#14161a;
+    --testo-tenue:#5c6370;
+    --bordo:rgba(0,0,0,.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --fondo:#0f1113;
+      --superficie:#191c1f;
+      --testo:#f2f3f5;
+      --testo-tenue:#a4acb8;
+      --bordo:rgba(255,255,255,.12);
+    }
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--fondo);
+    color:var(--testo);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 24px}
+
+  /* ---- Prima schermata: tutto visibile senza scorrere ---- */
+  .hero{
+    min-height:100svh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    padding:32px 24px;
+    gap:20px;
+  }
+  .icona{
+    width:104px;height:104px;border-radius:23%;
+    box-shadow:0 10px 30px rgba(0,0,0,.18);
+    display:block;
+  }
+  h1{
+    font-size:clamp(1.75rem,6vw,2.5rem);
+    line-height:1.15;letter-spacing:-.02em;
+    margin:0;font-weight:800;
+  }
+  .occhiello{
+    margin:0;font-size:.8rem;font-weight:700;letter-spacing:.10em;
+    text-transform:uppercase;color:var(--blu);
+  }
+  .promessa{
+    margin:0;max-width:32ch;
+    font-size:clamp(1rem,3.6vw,1.15rem);color:var(--testo-tenue);
+  }
+
+  /* ---- Badge: presenti ma non ancora cliccabili ---- */
+  .badge{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:4px}
+  .badge img{display:block}
+  .badge .apple{height:48px}
+  .badge .google{height:58px}   /* piu alto per compensare i margini interni del PNG */
+  /* Finché le schede non esistono i badge restano spenti: un badge che
+     porta a un 404 è peggio di un badge che aspetta. */
+  .badge span{display:inline-flex;opacity:.45;filter:grayscale(1);cursor:default}
+  .arrivo{
+    margin:0;font-size:.8rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--blu);
+  }
+  .dispositivi{margin:0;font-size:.85rem;color:var(--testo-tenue)}
+
+  /* ---- Contenuto sotto ---- */
+  .punti{display:grid;gap:12px;padding:8px 0 40px}
+  .punto{
+    background:var(--superficie);border:1px solid var(--bordo);
+    border-radius:16px;padding:18px 20px;
+  }
+  .punto h2{margin:0 0 4px;font-size:1rem;font-weight:700}
+  .punto p{margin:0;color:var(--testo-tenue);font-size:.95rem}
+  .evidenza{border-color:var(--blu)}
+  .evidenza h2{color:var(--blu)}
+
+  footer{
+    border-top:1px solid var(--bordo);
+    padding:24px 0 48px;
+    font-size:.8rem;color:var(--testo-tenue);
+  }
+  footer p{margin:0 0 10px}
+  a{color:inherit}
+  footer a{text-decoration:underline;text-underline-offset:2px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="icona" src="icona.png" alt="Icona dell'app Gate Counter" width="104" height="104">
+  <p class="occhiello">Contapersone per eventi</p>
+  <h1>Gate&nbsp;Counter</h1>
+  <p class="promessa">Più varchi, un solo numero: la capienza autorizzata sotto controllo in tempo reale.</p>
+
+  <div class="badge">
+    <span aria-label="In arrivo su App Store">
+      <img class="apple" src="badge-app-store.svg" alt="In arrivo su App Store">
+    </span>
+    <span aria-label="In arrivo su Google Play">
+      <img class="google" src="badge-google-play.png" alt="In arrivo su Google Play">
+    </span>
+  </div>
+
+  <p class="arrivo">In arrivo sugli store</p>
+  <p class="dispositivi">iPhone e Android &middot; conta anche senza connessione</p>
+</header>
+
+<main class="wrap">
+  <div class="punti">
+    <div class="punto evidenza">
+      <h2>Più varchi, un totale solo</h2>
+      <p>Ogni ingresso conta dal proprio telefono e il totale è uno per tutti, aggiornato in tempo reale. Tre porte da cento non riempiono una sala da centocinquanta senza che nessuno se ne accorga.</p>
+    </div>
+    <div class="punto">
+      <h2>Capienza e allarme</h2>
+      <p>Imposti il limite autorizzato e l'app dice sempre quanti posti restano. Avvisa quando ci si avvicina e quando si sfora, con colore e testo insieme.</p>
+    </div>
+    <div class="punto">
+      <h2>Categorie a modo tuo</h2>
+      <p>Avventori, staff, omaggio, fotografi, artisti: crei le categorie che ti servono, ognuna con la sua icona e il suo colore. Lo staff può restare fuori dal conteggio della capienza.</p>
+    </div>
+    <div class="punto">
+      <h2>Report della serata</h2>
+      <p>Statistiche, andamento e dettaglio per varco in un PDF da consegnare al committente, senza ricopiare numeri a mano.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="wrap">
+  <p>Pensata per chi conta in piedi, al buio, con una mano sola: pulsante grande, tasti volume e telecomandi Bluetooth, schermo bloccabile contro i tocchi accidentali.</p>
+  <p>Gate Counter è uno strumento di supporto. <strong>Non sostituisce</strong> le valutazioni e gli obblighi di chi è responsabile della sicurezza dell'evento.</p>
+</footer>
+
+</body>
+</html>
