@@ -81,11 +81,10 @@ describe what the app actually does — not to cover us for things it doesn't.</
     <td>Cloud Firestore (Google LLC), region <code>eur3</code> (EU)</td>
   </tr>
   <tr>
-    <td>Purchase receipts</td>
+    <td>Purchase receipts and an account identifier</td>
     <td>To verify a purchase with the store and unlock what you paid for, on
         every device where you sign in</td>
-    <td>Google Play or the App Store, then Firebase Cloud Functions
-        (Google LLC), EU region</td>
+    <td>Google Play or the App Store, then RevenueCat, Inc. (United States)</td>
   </tr>
   <tr>
     <td>Advertising identifier and device information</td>
@@ -97,8 +96,10 @@ describe what the app actually does — not to cover us for things it doesn't.</
 <div class="nota">
   <p><strong>The app does not use analytics.</strong> We do not track how you
   use the screens, we do not profile you, and we do not sell data to anyone.
-  Everything above is processed on Google infrastructure inside the European
-  Union, and receipts are checked automatically — no person reads them.</p>
+  Your events and counts stay on Google infrastructure inside the European
+  Union. Purchase verification is the one exception: receipts go to RevenueCat
+  in the United States, under the European Commission's standard contractual
+  clauses. Receipts are checked automatically — no person reads them.</p>
 </div>
 
 <h3>Camera</h3>
@@ -186,11 +187,10 @@ quello che l'app fa davvero, non per cautelarci su cose che non fa.</p>
     <td>Cloud Firestore (Google LLC), regione <code>eur3</code> (UE)</td>
   </tr>
   <tr>
-    <td>Ricevute d'acquisto</td>
+    <td>Ricevute d'acquisto e un identificativo dell'account</td>
     <td>Per verificare l'acquisto presso lo store e sbloccare ciò che hai
         pagato su ogni dispositivo dove accedi</td>
-    <td>Google Play o App Store, poi Firebase Cloud Functions
-        (Google LLC), regione UE</td>
+    <td>Google Play o App Store, poi RevenueCat, Inc. (Stati Uniti)</td>
   </tr>
   <tr>
     <td>Identificativo pubblicitario e informazioni sul dispositivo</td>
@@ -201,10 +201,12 @@ quello che l'app fa davvero, non per cautelarci su cose che non fa.</p>
 
 <div class="nota">
   <p><strong>L'app non usa strumenti di analisi.</strong> Non registriamo come
-  usi le schermate, non ti profiliamo e non vendiamo dati a nessuno. Tutto
-  quanto sopra è trattato su infrastruttura Google all'interno dell'Unione
-  europea, e le ricevute sono verificate in automatico — nessuna persona le
-  legge.</p>
+  usi le schermate, non ti profiliamo e non vendiamo dati a nessuno. Gli
+  eventi e i conteggi restano su infrastruttura Google all'interno dell'Unione
+  europea. La verifica degli acquisti è l'unica eccezione: le ricevute vanno a
+  RevenueCat, negli Stati Uniti, sulla base delle clausole contrattuali tipo
+  della Commissione europea. Le ricevute sono verificate in automatico —
+  nessuna persona le legge.</p>
 </div>
 
 <h3>Fotocamera</h3>
