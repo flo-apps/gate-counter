@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invito a un evento — Gate Counter</title>
+<meta name="description" content="Sei stato invitato a contare a un evento su Gate Counter. Installa l'app e inserisci il codice d'invito.">
+<meta name="theme-color" content="#0059FF">
+<link rel="icon" href="icona.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sei invitato a contare a un evento">
+<meta property="og:description" content="Installa Gate Counter e inserisci il codice d'invito per unirti al conteggio.">
+<meta property="og:image" content="https://flo-apps.github.io/gate-counter/icona.png">
+<meta property="og:url" content="https://flo-apps.github.io/gate-counter/join">
+<meta name="twitter:card" content="summary">
+
+<style>
+  :root{
+    --blu:#0059FF;
+    --fondo:#ffffff;
+    --superficie:#f5f5f7;
+    --testo:#14161a;
+    --testo-tenue:#5c6370;
+    --bordo:rgba(0,0,0,.10);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --fondo:#0f1113;
+      --superficie:#191c1f;
+      --testo:#f2f3f5;
+      --testo-tenue:#a4acb8;
+      --bordo:rgba(255,255,255,.12);
+    }
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--fondo);
+    color:var(--testo);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 24px}
+
+  .hero{
+    min-height:100svh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:32px 24px;gap:18px;
+  }
+  .icona{
+    width:88px;height:88px;border-radius:23%;
+    box-shadow:0 10px 30px rgba(0,0,0,.18);display:block;
+  }
+  .occhiello{
+    margin:0;font-size:.8rem;font-weight:700;letter-spacing:.10em;
+    text-transform:uppercase;color:var(--blu);
+  }
+  h1{
+    font-size:clamp(1.5rem,5.4vw,2.1rem);
+    line-height:1.15;letter-spacing:-.02em;margin:0;font-weight:800;
+  }
+
+  /* Il codice è la cosa che serve davvero: è lui l'elemento dominante. */
+  .codice{
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    background:var(--superficie);border:2px solid var(--blu);
+    border-radius:18px;padding:18px 28px;
+  }
+  .codice .etichetta{
+    margin:0;font-size:.72rem;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--testo-tenue);
+  }
+  .codice .valore{
+    margin:0;font-size:clamp(2rem,9vw,2.8rem);font-weight:800;
+    letter-spacing:.18em;font-variant-numeric:tabular-nums;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  .copia{
+    border:1px solid var(--bordo);background:transparent;color:var(--testo);
+    font:inherit;font-size:.85rem;border-radius:999px;padding:6px 16px;cursor:pointer;
+  }
+  .copia:active{opacity:.6}
+
+  .passi{margin:0;padding:0;list-style:none;display:grid;gap:10px;text-align:left;max-width:420px;width:100%}
+  .passi li{
+    display:flex;gap:12px;align-items:flex-start;
+    background:var(--superficie);border:1px solid var(--bordo);
+    border-radius:14px;padding:14px 16px;font-size:.95rem;
+  }
+  .passi b{
+    flex:none;width:26px;height:26px;border-radius:50%;
+    background:var(--blu);color:#fff;font-size:.85rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  .badge{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center}
+  .badge span{display:inline-flex;opacity:.45;filter:grayscale(1);cursor:default}
+  .badge img{display:block}
+  .badge .apple{height:44px}
+  .badge .google{height:53px}
+  .arrivo{
+    margin:0;font-size:.78rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--blu);
+  }
+  .gia{margin:0;font-size:.85rem;color:var(--testo-tenue);max-width:34ch}
+  a{color:var(--blu)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="icona" src="icona.png" alt="Icona dell'app Gate Counter" width="88" height="88">
+  <p class="occhiello">Gate Counter</p>
+  <h1>Sei invitato a contare<br>a un evento</h1>
+
+  <!-- Riempito da JS con il codice che arriva nell'indirizzo. Senza codice
+       resta nascosto e la pagina spiega comunque cosa fare. -->
+  <div class="codice" id="riquadro" hidden>
+    <p class="etichetta">Codice d'invito</p>
+    <p class="valore" id="codice">------</p>
+    <button class="copia" id="copia" type="button">Copia</button>
+  </div>
+
+  <ol class="passi">
+    <li><b>1</b><span>Installa <strong>Gate Counter</strong> sul tuo telefono.</span></li>
+    <li><b>2</b><span>Aprila e tocca <strong>«Unisciti con invito»</strong>.</span></li>
+    <li><b>3</b><span id="passo3">Inserisci il codice d'invito che ti ha dato l'organizzatore.</span></li>
+    <li><b>4</b><span>Aspetta che l'organizzatore ti approvi: comparirà l'evento e potrai iniziare a contare.</span></li>
+  </ol>
+
+  <div class="badge">
+    <span aria-label="In arrivo su App Store">
+      <img class="apple" src="badge-app-store.svg" alt="In arrivo su App Store">
+    </span>
+    <span aria-label="In arrivo su Google Play">
+      <img class="google" src="badge-google-play.png" alt="In arrivo su Google Play">
+    </span>
+  </div>
+  <p class="arrivo">In arrivo sugli store</p>
+
+  <p class="gia">Hai già l'app? Aprila e usa <strong>«Unisciti con invito»</strong>: puoi anche inquadrare di nuovo il QR dallo scanner dell'app.</p>
+  <p class="gia"><a href="./">Cos'è Gate Counter</a></p>
+</header>
+
+<script>
+  // Il codice arriva come ?code=ABC123. L'app legge lo stesso indirizzo, quindi
+  // quando i deep link saranno registrati lo stesso QR aprirà direttamente
+  // l'app e questa pagina non comparirà nemmeno.
+  (function () {
+    var code = new URLSearchParams(location.search).get('code');
+    if (!code) return;
+    code = code.trim().toUpperCase().slice(0, 12);
+    if (!/^[A-Z0-9]+$/.test(code)) return;
+
+    document.getElementById('codice').textContent = code;
+    document.getElementById('riquadro').hidden = false;
+    document.getElementById('passo3').innerHTML =
+      'Inserisci il codice <strong>' + code + '</strong>.';
+    document.title = 'Invito ' + code + ' — Gate Counter';
+
+    var bottone = document.getElementById('copia');
+    bottone.addEventListener('click', function () {
+      navigator.clipboard.writeText(code).then(function () {
+        bottone.textContent = 'Copiato';
+        setTimeout(function () { bottone.textContent = 'Copia'; }, 1600);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
