@@ -6,13 +6,13 @@
 <title>Gate Counter — scarica l'app</title>
 <meta name="description" content="Il contapersone per eventi: più varchi contano insieme, il totale è uno solo e la capienza autorizzata resta sotto controllo in tempo reale.">
 <meta name="theme-color" content="#0059FF">
-<link rel="icon" href="icona.png">
+<link rel="icon" href="icona-2026.png">
 
 <!-- Anteprima quando il link viene condiviso su WhatsApp, Telegram, social -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gate Counter">
 <meta property="og:description" content="Più varchi, un solo numero. La capienza autorizzata sotto controllo in tempo reale, a ogni ingresso.">
-<meta property="og:image" content="https://flo-apps.github.io/gate-counter/icona.png">
+<meta property="og:image" content="https://flo-apps.github.io/gate-counter/icona-2026.png">
 <meta property="og:url" content="https://flo-apps.github.io/gate-counter/">
 <meta name="twitter:card" content="summary">
 
@@ -73,15 +73,13 @@
     font-size:clamp(1rem,3.6vw,1.15rem);color:var(--testo-tenue);
   }
 
-  /* ---- Badge: presenti ma non ancora cliccabili ---- */
+  /* ---- Badge store ---- */
   .badge{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:4px}
   .badge img{display:block}
   .badge .apple{height:48px}
   .badge .google{height:58px}   /* piu alto per compensare i margini interni del PNG */
-  /* Finché le schede non esistono i badge restano spenti: un badge che
-     porta a un 404 è peggio di un badge che aspetta. */
-  .badge span{display:inline-flex;opacity:.45;filter:grayscale(1);cursor:default}
-  .arrivo{
+  .badge a{display:inline-flex}
+  .disponibile{
     margin:0;font-size:.8rem;font-weight:700;letter-spacing:.06em;
     text-transform:uppercase;color:var(--blu);
   }
@@ -111,21 +109,21 @@
 <body>
 
 <header class="hero">
-  <img class="icona" src="icona.png" alt="Icona dell'app Gate Counter" width="104" height="104">
+  <img class="icona" src="icona-2026.png" alt="Icona dell'app Gate Counter" width="104" height="104">
   <p class="occhiello">Contapersone per eventi</p>
   <h1>Gate&nbsp;Counter</h1>
   <p class="promessa">Più varchi, un solo numero: la capienza autorizzata sotto controllo in tempo reale.</p>
 
   <div class="badge">
-    <span aria-label="In arrivo su App Store">
-      <img class="apple" src="badge-app-store.svg" alt="In arrivo su App Store">
-    </span>
-    <span aria-label="In arrivo su Google Play">
-      <img class="google" src="badge-google-play.png" alt="In arrivo su Google Play">
-    </span>
+    <a href="https://apps.apple.com/app/id6804875955" aria-label="Scarica Gate Counter su App Store">
+      <img class="apple" src="badge-app-store.svg" alt="Scarica su App Store">
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.gatecount.app" aria-label="Scarica Gate Counter su Google Play">
+      <img class="google" src="badge-google-play.png" alt="Scarica su Google Play">
+    </a>
   </div>
 
-  <p class="arrivo">In arrivo sugli store</p>
+  <p class="disponibile">Disponibile su App Store e Google Play</p>
   <p class="dispositivi">iPhone e Android &middot; conta anche senza connessione</p>
 </header>
 
